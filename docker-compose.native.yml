@@ -1,0 +1,28 @@
+version: '3.6'
+services:
+  api:
+#    image: demo:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile.native
+    ports:
+      - "8080:8080"
+    depends_on:
+      dbpostgresql:
+         condition: service_healthy
+  dbpostgresql:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5

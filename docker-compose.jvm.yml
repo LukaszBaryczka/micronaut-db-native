@@ -1,0 +1,28 @@
+version: '3.5'
+services:
+  dbpostgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+  api:
+    container_name: app-micronaut
+    image: app-micronaut
+    build:
+      context: ./
+      dockerfile: Dockerfile.jvm
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          memory: 512M
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dbpostgresql
+

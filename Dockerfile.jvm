@@ -1,0 +1,4 @@
+FROM openjdk:21
+EXPOSE 8080 9010
+ADD /target/demo-0.1.jar demo-0.1.jar
+ENTRYPOINT ["java", "-Dcom.sun.management.jmxremote=true",  "-Dcom.sun.management.jmxremote.local.only=false",  "-Dcom.sun.management.jmxremote.authenticate=false", "-Dcom.sun.management.jmxremote.ssl=false",  "-Djava.rmi.server.hostname=localhost", "-Dcom.sun.management.jmxremote.port=9010", "-Dcom.sun.management.jmxremote.rmi.port=9010", "-jar", "demo-0.1.jar"]
