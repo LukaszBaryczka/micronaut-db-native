@@ -56,11 +56,11 @@
       <artifactId>micronaut-hibernate-jpa</artifactId>
       <scope>compile</scope>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>io.micronaut.sql</groupId>-->
-<!--      <artifactId>micronaut-jdbc-hikari</artifactId>-->
-<!--      <scope>compile</scope>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>io.micronaut.sql</groupId>
+      <artifactId>micronaut-jdbc-hikari</artifactId>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>

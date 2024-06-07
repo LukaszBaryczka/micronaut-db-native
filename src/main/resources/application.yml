@@ -12,7 +12,7 @@ datasources:
     schema-generate: CREATE_DROP
 jpa:
   default:
-    compile-time-hibernate-proxies: false
+    compile-time-hibernate-proxies: true
     properties:
       hibernate:
         hbm2ddl:
