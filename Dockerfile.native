@@ -1,5 +1,6 @@
 FROM cgr.dev/chainguard/wolfi-base:latest
 COPY target/demo /app/demo
+COPY target/lib* /app/
 RUN chmod +x /app/demo
 EXPOSE 8080
 ENTRYPOINT ["/app/demo"]
